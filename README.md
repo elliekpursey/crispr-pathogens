@@ -15,7 +15,7 @@ git clone https://github.com/elliekpursey/crispr-pathogens.git
 ```
 Input
 ====== 
-Nucleotide fasta files, which must be placed in resources > genomes. 
+Genomic fasta files (.fna), which must be placed in resources > genomes. The *Pseudomonas aeruginosa* PAO1 genome is provided as a test file.
 
 Output
 ====== 
