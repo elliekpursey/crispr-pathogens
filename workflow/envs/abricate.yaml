@@ -1,0 +1,8 @@
+name: genome_download
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - python=3.6.*
+    - abricate=1.0.*

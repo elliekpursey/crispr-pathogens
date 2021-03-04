@@ -1,0 +1,11 @@
+name: cctyper
+channels:
+    - conda-forge
+    - bioconda
+    - russel88
+dependencies:
+    - python=3.8.*
+    - cctyper=1.2.*
+
+
+

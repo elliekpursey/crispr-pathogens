@@ -1,0 +1,147 @@
+import pandas as pd
+from snakemake.utils import min_version
+
+min_version("5.1")
+
+localrules: all
+
+directories, filenames = glob_wildcards("resources/genomes/{folder}/{file}.fna")
+
+rule all:
+    input:
+        expand("results/genome_lengths.csv", taxid=directories),
+        expand("results/crispr/{taxid}/{filename}/", zip, taxid=directories, filename=filenames),
+        expand("results/crispr/crisprcas.csv", taxid=directories),
+        expand("results/crispr/crispr_arrays.csv", taxid=directories),
+        expand("results/amr/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
+        "results/amr/amr.csv",
+        expand("results/plasmids/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
+        "results/plasmids/plasmids.csv",
+        expand("results/intI1/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
+        "results/intI1/intI1.csv",
+        expand("results/ICEs/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
+        "results/ICEs/ICEs.csv"
+
+rule get_genome_lengths:
+    input:
+        expand("resources/genomes/{taxid}/{filename}.fna", zip, taxid=directories, filename=filenames)
+    output:
+        "results/genome_lengths.csv"
+    conda:
+        "envs/bio.yaml"
+    script:
+        "scripts/get_genome_lengths.py"
+
+rule find_crispr:
+    input: 
+        "resources/genomes/{taxid}/{filename}.fna"
+    output:
+        directory("results/crispr/{taxid}/{filename}/")
+    threads: 12
+    conda:
+        "envs/cctyper.yaml"
+    shell:
+        """
+        rm -rf {output}
+        cctyper {input} {output} --threads 12
+        """
+
+rule compile_crispr:
+    input: 
+       expand("results/crispr/{taxid}/{filename}/", zip, taxid=directories, filename=filenames)
+    output:
+        "results/crispr/crisprcas.csv",
+        "results/crispr/crispr_arrays.csv"
+    conda:
+        "envs/cctyper.yaml"
+    script:
+        "scripts/compile_crisprcastyper_output.py"
+
+rule find_amr:
+    input:
+        "resources/genomes/{taxid}/{filename}.fna"
+    output:
+        "results/amr/{taxid}/{filename}.tab"
+    conda:
+        "envs/abricate.yaml"
+    shell:
+        """
+        abricate {input} > {output}
+        """
+
+rule compile_amr:
+    input:
+        expand("results/amr/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames)
+    output:
+        "results/amr/amr.csv"
+    conda:
+        "envs/cctyper.yaml"
+    script:
+        "scripts/compile_abricate_output.py"
+
+rule find_plasmids:
+    input:
+        "resources/genomes/{taxid}/{filename}.fna"
+    output:
+        "results/plasmids/{taxid}/{filename}.tab"
+    conda:
+        "envs/abricate.yaml"
+    shell:
+        """
+        abricate --db plasmidfinder {input} > {output}
+        """
+
+rule compile_plasmids:
+    input:
+        expand("results/plasmids/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames)
+    output:
+        "results/plasmids/plasmids.csv"
+    conda:
+        "envs/cctyper.yaml"
+    script:
+        "scripts/compile_abricate_output.py"
+
+rule find_integrase:
+    input:
+        "resources/genomes/{taxid}/{filename}.fna"
+    output:
+        "results/intI1/{taxid}/{filename}.tab"
+    conda:
+        "envs/abricate.yaml"
+    shell:
+        """
+        abricate --datadir resources --db intI1 {input} > {output}
+        """    
+
+rule compile_integrase:
+    input:
+        expand("results/intI1/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames)
+    output:
+        "results/intI1/intI1.csv"
+    conda:
+        "envs/cctyper.yaml"
+    script:
+        "scripts/compile_abricate_output.py"
+
+rule find_ICEs:
+    input:
+        "resources/genomes/{taxid}/{filename}.fna"
+    output:
+        "results/ICEs/{taxid}/{filename}.tab"
+    conda:
+        "envs/abricate.yaml"
+    shell:
+        """
+        abricate --datadir resources --db ICE {input} > {output}
+        """    
+
+rule compile_ICEs:
+    input:
+        expand("results/ICEs/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames)
+    output:
+        "results/ICEs/ICEs.csv"
+    conda:
+        "envs/cctyper.yaml"
+    script:
+        "scripts/compile_abricate_output.py"
+
