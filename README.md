@@ -23,17 +23,21 @@ Usage
 ### Local use
 Run the following command:
 
-`snakemake -s workflow/Snakefile --use-conda`
+```shell
+snakemake -s workflow/Snakefile --use-conda
+```
 
 ### Cluster use
 This repository includes a slurm profile in workflow > profiles > slurm.default. Alternatively, you can [make your own](https://github.com/Snakemake-Profiles/slurm) in the same way. 
 
 
-The pipeline can be run with the command:
+The pipeline can then be run with the command:
 
-`snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 3 --use-conda`
+```shell
+snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 3 --use-conda
+``` 
 
-where `-j` specifies the number of jobs to submit simultaneously.
+where `-j` specifies the number of jobs to submit simultaneously. 
 
 Output
 ====== 
