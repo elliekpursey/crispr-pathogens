@@ -17,6 +17,24 @@ Input
 ====== 
 Genomic fasta files (.fna), which must be placed in resources > genomes. The *Pseudomonas aeruginosa* PAO1 genome is provided as a test file.
 
+Usage
+======
+
+### Local use
+Run the following command:
+
+`snakemake -s workflow/Snakefile --use-conda`
+
+### Cluster use
+This repository includes a slurm profile in workflow > profiles > slurm.default. Alternatively, you can [make your own](https://github.com/Snakemake-Profiles/slurm) in the same way. 
+
+
+The pipeline can be run with the command:
+
+`snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 3 --use-conda`
+
+where `-j` specifies the number of jobs to submit simultaneously.
+
 Output
 ====== 
 The followed compiled output files are produced:
