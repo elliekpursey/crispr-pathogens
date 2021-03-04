@@ -9,7 +9,7 @@ from Bio.Blast.Applications import NcbiblastnCommandline
 crisprs = pd.read_csv('results/crispr/crispr_arrays.csv', names=["Contig","CRISPR","Start","End","Consensus_repeat", "N_repeats", "Repeat_len", "Spacer_len_avg", "Repeat_identity",
                  "Spacer_identity", "Spacer_len_sem", "Trusted", "Prediction", "Subtype", "Subtype_probability", "id"]) 
 
-crisprs['path'] = 'proc_b/' +crisprs['id'] + 'spacers/' + crisprs['CRISPR'] + '.fa'
+crisprs['path'] = crisprs['id'] + 'spacers/' + crisprs['CRISPR'] + '.fa'
 
 crispr_paths = list(crisprs['path'])
 
