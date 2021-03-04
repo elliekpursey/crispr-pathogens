@@ -9,7 +9,7 @@ conda install -c bioconda blast
 conda install -c conda-forge biopython 
 
 # make output directories
-cd proc_b/resources
+cd resources
 
 # mkdir blast_dbs
 cd blast_dbs
