@@ -1,4 +1,4 @@
-name: genome_download
+name: abricate
 channels:
     - conda-forge
     - bioconda
