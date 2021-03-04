@@ -23,13 +23,13 @@ The followed compiled output files are produced:
 
 File | Description 
 --- | --- 
-*amr.csv* | AMR genes for all input files in [abricate](https://github.com/tseemann/abricate) output format
-*crispr_arrays.csv* | CRISPR arrays (crisprs_near_cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper)) for all input files 
-*crisprcas.csv* | CRISPR-Cas systems (CRISPR_Cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper)) for all input files 
+*amr.csv* | AMR genes for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
+*crispr_arrays.csv* | CRISPR arrays (crisprs_near_cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper#output-)) for all input files 
+*crisprcas.csv* | CRISPR-Cas systems (CRISPR_Cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper#output-)) for all input files 
 *genome_lengths.csv* | Lengths of all genomes 
-*ICEs.csv* | ICEs for all input files in [abricate](https://github.com/tseemann/abricate) output format
-*plasmids.csv* | plasmid replicons for all input files in [abricate](https://github.com/tseemann/abricate) output format 
-*intI1.csv* | intI1 copies for all input files in [abricate](https://github.com/tseemann/abricate) output format
+*ICEs.csv* | ICEs for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
+*plasmids.csv* | plasmid replicons for all input files in [abricate](https://github.com/tseemann/abricate#output) output format 
+*intI1.csv* | intI1 copies for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
 
 Further analysis
 ====== 
