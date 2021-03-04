@@ -9,7 +9,7 @@ from snakemake.utils import read_job_properties
 import slurm_utils
 
 # cookiecutter arguments
-SBATCH_DEFAULTS = """partition=defq time=200:00:00 mail-user=ep458@exeter.ac.uk mail-type=ALL --ignore-pbs"""
+SBATCH_DEFAULTS = """"""
 CLUSTER_CONFIG = ""
 ADVANCED_ARGUMENT_CONVERSION = {"yes": True, "no": False}[
     "no"
