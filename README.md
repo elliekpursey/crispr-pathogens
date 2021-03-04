@@ -28,8 +28,7 @@ snakemake -s workflow/Snakefile --use-conda
 ```
 
 ### Cluster use
-This repository includes a slurm profile in workflow > profiles > slurm.default. Alternatively, you can [make your own](https://github.com/Snakemake-Profiles/slurm) in the same way. 
-
+This repository includes a slurm profile in workflow > profiles > slurm.default, created using [this cookiecutter](https://github.com/Snakemake-Profiles/slurm). You can also make your own profile, and profiles are available for [other job schedulers](https://github.com/Snakemake-Profiles).
 
 The pipeline can then be run with the command:
 
@@ -37,7 +36,7 @@ The pipeline can then be run with the command:
 snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 3 --use-conda
 ``` 
 
-where `-j` specifies the number of jobs to submit simultaneously. 
+where `-j` specifies the number of jobs to submit simultaneously and `--profile` gives the location of your chosen cluster profile.
 
 Output
 ====== 
