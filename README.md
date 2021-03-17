@@ -35,7 +35,7 @@ This repository includes a slurm profile in workflow > profiles > slurm.default,
 The pipeline can then be run with the command:
 
 ```shell
-snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 3 --use-conda
+snakemake -s workflow/Snakefile --profile profiles/slurm.default -j 4 --use-conda
 ``` 
 
 where `-j` specifies the number of jobs to submit simultaneously and `--profile` gives the location of your chosen cluster profile.
