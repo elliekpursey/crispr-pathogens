@@ -21,7 +21,7 @@ Usage
 ======
 
 ### Local use
-Run the following command:
+Run the following command from within the crispr-pathogens directory:
 
 ```shell
 snakemake -s workflow/Snakefile --use-conda
