@@ -11,8 +11,8 @@ rule all:
     input:
         expand("results/genome_lengths.csv", taxid=directories),
         expand("results/crispr/{taxid}/{filename}/", zip, taxid=directories, filename=filenames),
-        expand("results/crispr/crisprcas.csv", taxid=directories),
-        expand("results/crispr/crispr_arrays.csv", taxid=directories),
+        "results/crispr/crisprcas.csv",
+        "results/crispr/crispr_arrays.csv",
         expand("results/amr/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
         "results/amr/amr.csv",
         expand("results/plasmids/{taxid}/{filename}.tab", zip, taxid=directories, filename=filenames),
