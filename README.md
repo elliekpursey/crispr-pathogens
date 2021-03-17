@@ -24,8 +24,10 @@ Usage
 Run the following command from within the crispr-pathogens directory:
 
 ```shell
-snakemake -s workflow/Snakefile --use-conda
+snakemake -s workflow/Snakefile --use-conda --cores 4
 ```
+
+You may need to adjust the number of cores you use based on your system (--cores argument)
 
 ### Cluster use
 This repository includes a slurm profile in workflow > profiles > slurm.default, created using [this cookiecutter](https://github.com/Snakemake-Profiles/slurm). You can also make your own profile, and profiles are available for [other job schedulers](https://github.com/Snakemake-Profiles).
