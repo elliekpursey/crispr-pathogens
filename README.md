@@ -4,7 +4,7 @@
 
 Dependencies
 ====== 
-`Snakemake` version ≥ 5.1 and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). 
+`Snakemake` version ≥ 5.1 and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). This pipeline has been tested in Ubuntu.
 
 Install
 ====== 
