@@ -15,7 +15,7 @@ names = []
 lengths = []
 
 for fasta in list(snakemake.input):
-    with open(fasta, "rU") as handle:
+    with open(fasta, "r") as handle:
         name = fasta
         length = 0
         for record in SeqIO.parse(handle, "fasta"):
