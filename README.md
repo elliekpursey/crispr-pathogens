@@ -8,7 +8,7 @@ Dependencies
 
 Install
 ====== 
-Clone this github repository.
+Navigate to your chosen working directory and clone this github repository.
 
 ```shell
 git clone https://github.com/elliekpursey/crispr-pathogens.git
