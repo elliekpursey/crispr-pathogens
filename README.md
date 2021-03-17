@@ -15,7 +15,7 @@ git clone https://github.com/elliekpursey/crispr-pathogens.git
 ```
 Input
 ====== 
-Genomic fasta files (.fna), which must be placed in resources > genomes > species. The *Pseudomonas aeruginosa* PAO1 genome is provided as a test file with the folder 287 (its taxonomy id).
+Genomic fasta files (.fna), which must be placed in resources > genomes > species. The *Pseudomonas aeruginosa* PAO1 genome is provided as a test file within the folder 287 (its taxonomy id).
 
 Usage
 ======
