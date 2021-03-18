@@ -14,7 +14,7 @@ f2 = open(snakemake.output[1], "w")
 f2.close()
 
 for input_file in list(snakemake.input):
-    print(input_file + "CRISPR_Cas.tab"
+    print(input_file + "CRISPR_Cas.tab")
     try:
         results = pd.read_csv(input_file + "CRISPR_Cas.tab", sep = '\t')
         results['id'] = input_file
