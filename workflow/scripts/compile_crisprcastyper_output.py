@@ -8,11 +8,6 @@ Created on Thu May 21 11:17:59 2020
 
 import pandas as pd
 
-f1 = open(snakemake.output[0], "w")
-f1.close()        
-f2 = open(snakemake.output[1], "w")
-f2.close()
-
 for input_file in list(snakemake.input):
     try:
         results = pd.read_csv(input_file + "/CRISPR_Cas.tab", sep = '\t')
