@@ -16,7 +16,7 @@ f2.close()
 for input_file in list(snakemake.input):
     print(input_file + "CRISPR_Cas.tab")
     try:
-        results = pd.read_csv(input_file + "CRISPR_Cas.tab", sep = '\t')
+        results = pd.read_csv(input_file + "/CRISPR_Cas.tab", sep = '\t')
         results['id'] = input_file
         results.to_csv(snakemake.output[0], mode='a', header=False)
     except:
@@ -24,7 +24,7 @@ for input_file in list(snakemake.input):
 
 for input_file in list(snakemake.input):
     try:
-        results = pd.read_csv(input_file + "crisprs_near_cas.tab", sep = '\t')
+        results = pd.read_csv(input_file + "/crisprs_near_cas.tab", sep = '\t')
         results['id'] = input_file
         results.to_csv(snakemake.output[1], mode='a', header=False)
     except:
