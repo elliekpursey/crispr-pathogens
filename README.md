@@ -54,8 +54,22 @@ File | Description
 *plasmids.csv* | plasmid replicons for all input files in [abricate](https://github.com/tseemann/abricate#output) output format 
 *intI1.csv* | intI1 copies for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
 
-Further analysis
+Analysis for paper
 ====== 
+
+To detect spacer targets and find which of these targets carry ABR genes, the script *find_spacer_targets.py* was used.
+
+Initial trees were made using mashtree with the script *phylogeny.sh*. The script *root_trees.R* was used to produce the trees in folder *final_trees*.
+
+The following R scripts were used to perform all statistical analyses and generate all figures, supplementary figures and supplementary tables:
+
+Script | Function 
+--- | --- 
+*descriptive_plots.R* | Descriptive plots, generates figs S1-3
+*spacers_descriptive_plots.R* | Descriptive plots, generates fig S5
+*CRISPR_binom_models.R* | Binomial GLM of CRISPR-Cas vs. MGE presence, generates figs 1 and S4 and tables S1-4
+*bayesian_phylo_models.R* | Bayesian phylogenetically-controlled GLM of ABR counts vs. CRISPR-Cas type and spacer counts, generates fig 2 and tables S5-6
+*spacer_target_analysis.R* | Bayesian GLMs of ABR counts vs. counts of spacers targeting MGEs with and without ABR, generates fig 3 and tables S7-8
 
 Citation
 ======
