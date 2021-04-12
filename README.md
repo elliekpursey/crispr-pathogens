@@ -54,7 +54,7 @@ File | Description
 *plasmids.csv* | plasmid replicons for all input files in [abricate](https://github.com/tseemann/abricate#output) output format 
 *intI1.csv* | intI1 copies for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
 
-Analysis for paper
+Additional analysis
 ====== 
 
 To detect spacer targets and find which of these targets carry ABR genes, the script *find_spacer_targets.py* was used.
