@@ -1,10 +1,10 @@
 # CRISPR-Cas and MGE detection in bacterial pathogens
 
-[Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline to detect CRISPR-Cas systems using [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper), and search against AMR, plasmid and [ICE](https://db-mml.sjtu.edu.cn/ICEberg/) databases using [abricate](https://github.com/tseemann/abricate).    
+[Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline to detect CRISPR-Cas systems using [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper), and search against AMR, plasmid and [ICE](https://db-mml.sjtu.edu.cn/ICEberg/) databases using [ABRicate](https://github.com/tseemann/abricate).    
 
 Dependencies
 ====== 
-`Snakemake` version ≥ 5.1 and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). This pipeline has been tested in Ubuntu.
+`Snakemake` version ≥ 5.1 and [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html). This pipeline has been tested in CentOS.
 
 Install
 ====== 
@@ -46,7 +46,7 @@ The followed compiled output files are produced:
 
 File | Description 
 --- | --- 
-*amr.csv* | AMR genes for all input files in [abricate](https://github.com/tseemann/abricate#output) output format
+*amr.csv* | AMR genes for all input files in [ABRicate](https://github.com/tseemann/abricate#output) output format
 *crispr_arrays.csv* | CRISPR arrays (crisprs_near_cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper#output-)) for all input files 
 *crisprcas.csv* | CRISPR-Cas systems (CRISPR_Cas.tab from [CRISPRCasTyper](https://github.com/Russel88/CRISPRCasTyper#output-)) for all input files 
 *genome_lengths.csv* | Lengths of all genomes 
@@ -70,6 +70,8 @@ Script | Function
 *CRISPR_binom_models.R* | Binomial GLM of CRISPR-Cas vs. MGE presence, generates figs 1 and S4 and tables S1-4
 *bayesian_phylo_models.R* | Bayesian phylogenetically-controlled GLM of ABR counts vs. CRISPR-Cas type and spacer counts, generates fig 2 and tables S5-6
 *spacer_target_analysis.R* | Bayesian GLMs of ABR counts vs. counts of spacers targeting MGEs with and without ABR, generates fig 3 and tables S7-8
+
+In addition, the rebuttal analyses in response to reviewer comments are in the folder *rebuttal*. This includes a snakemake pipeline that was used for detecting Type I-C acrs in *Pseudomonas aeruginosa*, as well as R scripts to analyse its output. These produce figures S6 and tables S7 and S8 in the final manuscript.
 
 Citation
 ======
