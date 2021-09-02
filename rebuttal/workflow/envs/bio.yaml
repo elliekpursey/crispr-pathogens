@@ -1,0 +1,11 @@
+name: bio
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+    - anaconda
+dependencies:
+    - python=3.8.*
+    - biopython=1.78
+    - pandas=1.2.0
+    - blast=2.10.1 

@@ -1,0 +1,52 @@
+from snakemake.utils import min_version
+
+min_version("5.1")
+
+localrules: all
+
+filenames, = glob_wildcards("resources/genomes/287/{file}.fna")
+
+rule all:
+    input:
+        expand("results/rebuttal/protein_coding/{genome}.gff", genome=filenames),
+        expand("results/rebuttal/acrs/{genome}_acrs.tab", genome=filenames),
+        "results/rebuttal/acrs/all_acrs.tab"
+
+
+rule find_proteins:
+    input:
+        "resources/genomes/287/{genome}.fna"
+    output:
+        genes="results/rebuttal/protein_coding/{genome}.gff",
+        translation="results/rebuttal/protein_coding/{genome}_prot_seqs.fna"
+    conda:
+        "envs/prodigal.yaml"
+    shell:
+        """
+        prodigal -i {input} -o {output.genes} -f gff -a {output.translation}
+        """
+
+rule search_acr:
+    input:
+        "results/rebuttal/protein_coding/{genome}_prot_seqs.fna"
+    output:
+        "results/rebuttal/acrs/{genome}_acrs.tab"
+    conda:
+        "envs/blast.yaml"
+    shell:
+        """
+        blastp -query {input} -db resources/acrs/acrC_prot.fna -out {output} -outfmt 6
+        """
+
+rule compile_acr:
+    input:
+        expand("results/rebuttal/acrs/{genome}_acrs.tab", genome=filenames)
+    output:
+        "results/rebuttal/acrs/all_acrs.csv"
+    resources:
+        mem_mb=50000,
+        time=2880
+    conda:
+        "envs/bio.yaml"
+    script:
+        "scripts/compile_blast.py"
