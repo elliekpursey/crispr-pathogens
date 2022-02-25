@@ -76,8 +76,12 @@ In addition, the rebuttal analyses in response to reviewer comments are in the f
 Citation
 ======
 
+If you use any of the code in this repository, please cite the paper. 
+
 The work produced by this additional analyis, and using this pipeline, is free to read as a preprint:
 https://www.biorxiv.org/content/10.1101/2021.04.12.439454v1
 
-And the final version is published in Proceedings of the Royal Society B:
+The final version is published in Proceedings of the Royal Society B:
 https://royalsocietypublishing.org/doi/10.1098/rstb.2020.0464
+
+
